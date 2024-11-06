@@ -1,9 +1,9 @@
-FROM python:3.11
-
+FROM python:3.11-slim
 WORKDIR /app
-
-RUN pip install grpcio-tools
+RUN pip install --no-cache-dir \
+    grpcio \
+    grpcio-tools \
+    numpy
 
 COPY . .
-
 ENTRYPOINT ["python", "sample_test_selector.py"]
